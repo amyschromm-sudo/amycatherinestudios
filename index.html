@@ -100,9 +100,7 @@
   .f-logo { height: 24px; width: auto; }
   .f-copy { font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
 
-@media (max-width: 768px) {
-  /* NAV */
-  nav { padding: 1.2rem 1.5rem; }
+
   .nav-name { display: none; }
 
   /* HERO */
@@ -151,6 +149,20 @@
 
   /* WHERE CRAFT BECOMES LEGACY */
   .hero-craft { font-size: clamp(1.2rem, 5vw, 2rem) !important; padding: 0 1.5rem; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-name { font-size: 0.5rem; letter-spacing: 0.15em; }
+  .hero-text { left: 1.2rem; right: 1.2rem; bottom: 8%; }
+  .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+  .hero-tagline { font-size: 0.65rem; letter-spacing: 0.15em; }
+  .film-section { padding: 2.5rem 1.2rem; }
+  .credits { padding: 2.5rem 1.2rem; }
+  .credits-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .next-project { padding: 2.5rem 1.2rem; }
+  footer { padding: 1.5rem 1.2rem; flex-direction: column; gap: 0.8rem; text-align: center; }
+  .video-strip { height: 56vw; }
 }
 </style>
 </head>
