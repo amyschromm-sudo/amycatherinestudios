@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woodford Reserve — Amy Catherine Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #000; --white: #fff; --gold: #c9a96e; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; font-weight: 200; background: var(--black); color: var(--white); cursor: none; overflow-x: hidden; }
+  .cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; }
+  .nav-left { display: flex; align-items: center; gap: 1rem; }
+  .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.3); }
+  .nav-name { font-size: 0.65rem; letter-spacing: 0.3em; color: var(--white); text-transform: uppercase; }
+  .nav-back { font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.6); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+  .nav-back:hover { color: var(--gold); }
+
+  .hero-still { position: relative; height: 100vh; overflow: hidden; }
+  .hero-still img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(1); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); }
+  .hero-text { position: absolute; bottom: 10%; left: 3rem; }
+  .hero-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3rem, 7vw, 7rem); color: var(--white); letter-spacing: 0.05em; line-height: 1; display: block; }
+  .hero-tagline { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-top: 1rem; font-size: 0.85rem; display: block; }
+
+  .film-section { padding: 6rem 3rem; }
+  .section-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: block; }
+  .vimeo-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+  .vimeo-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+  /* LANDSCAPE GRID */
+  .stills-landscape { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 2px; }
+  .still-land { overflow: hidden; aspect-ratio: 3/2; cursor: pointer; }
+  .still-land img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); transition: transform 0.7s ease, filter 0.5s ease; }
+  .still-land:hover img { transform: scale(1.03); filter: brightness(1); }
+
+  /* PORTRAIT GRID */
+  .stills-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2px; }
+  .still-port { overflow: hidden; aspect-ratio: 2/3; cursor: pointer; }
+  .still-port img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.9); transition: transform 0.7s ease, filter 0.5s ease; }
+  .still-port:hover img { transform: scale(1.03); filter: brightness(1); }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+  .lightbox-close { position: absolute; top: 2rem; right: 2rem; color: var(--white); cursor: pointer; font-size: 0.7rem; letter-spacing: 0.2em; }
+  .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.6); font-size: 0.65rem; letter-spacing: 0.2em; cursor: pointer; padding: 1rem; }
+  .lightbox-prev { left: 2rem; }
+  .lightbox-next { right: 2rem; }
+
+  .credits { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .credits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
+  .credit-label { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+  .credit-value { font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); }
+
+  .next-project { padding: 5rem 3rem; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; transition: opacity 0.3s; }
+  .next-project:hover { opacity: 0.7; }
+  .next-label { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .next-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--white); }
+  .next-arrow { font-size: 2rem; color: var(--gold); }
+
+  footer { padding: 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); }
+  .f-right { font-size: 0.55rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+
+<nav>
+  <div class="nav-left">
+    <div class="nav-divider"></div>
+    <span class="nav-name">Amy Catherine Studios</span>
+  </div>
+  <a href="index.html" class="nav-back">← Back</a>
+</nav>
+
+<div class="hero-still">
+  <img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_10_pgeeav.jpg" alt="Woodford Reserve">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <span class="hero-label">Campaign · Spirits</span>
+    <span class="hero-title">Woodford Reserve</span>
+    <span class="hero-tagline">Where tradition becomes soul.</span>
+  </div>
+</div>
+
+<div class="film-section">
+  <span class="section-label">The Film</span>
+  <div class="vimeo-wrap">
+    <iframe src="https://player.vimeo.com/video/901191472?autoplay=0&title=0&byline=0&portrait=0&color=c9a96e" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- LANDSCAPE ROW: _9, _6 -->
+<div class="stills-landscape">
+  <div class="still-land"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_9_ss87aw.jpg" alt="Woodford Reserve" style="object-position:center 40%;"></div>
+  <div class="still-land"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_6_aovv08.jpg" alt="Woodford Reserve" style="object-position:center center;"></div>
+</div>
+
+<!-- PORTRAIT ROW: _3, _4, _5 -->
+<div class="stills-portrait">
+  <div class="still-port"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_3_qnj3nc.jpg" alt="Woodford Reserve" style="object-position:center 20%;"></div>
+  <div class="still-port"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_4_ipqa3t.jpg" alt="Woodford Reserve" style="object-position:center 20%;"></div>
+  <div class="still-port"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_5_jjraeb.jpg" alt="Woodford Reserve" style="object-position:center 20%;"></div>
+</div>
+
+<div class="credits">
+  <span class="section-label">Credits</span>
+  <div class="credits-grid">
+    <div><span class="credit-label">Director & Photographer</span><span class="credit-value">Amy Schromm</span></div>
+    <div><span class="credit-label">Client</span><span class="credit-value">Woodford Reserve</span></div>
+    <div><span class="credit-label">Studio</span><span class="credit-value">Amy Catherine Studios</span></div>
+  </div>
+</div>
+
+<a href="starr-piano.html" class="next-project">
+  <div>
+    <span class="next-label">Next Project</span>
+    <span class="next-title">Starr Piano Suite</span>
+  </div>
+  <span class="next-arrow">→</span>
+</a>
+
+<footer>
+  <div><span style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:rgba(255,255,255,0.4);">ACS</span></div>
+  <div class="f-right">DBA ACS Productions LLC<br>© 2026 All Rights Reserved</div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lbClose">CLOSE ✕</span>
+  <span class="lightbox-prev" id="lbPrev">← PREV</span>
+  <img id="lbImg" src="" alt="">
+  <span class="lightbox-next" id="lbNext">NEXT →</span>
+</div>
+
+<script>
+const cur = document.getElementById('cur');
+document.addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
+
+const allImgs = Array.from(document.querySelectorAll('.still-land img, .still-port img'));
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+let current = 0;
+allImgs.forEach((img, i) => {
+  img.addEventListener('click', () => { current = i; lbImg.src = img.src; lb.classList.add('active'); });
+});
+document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('active'));
+document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + allImgs.length) % allImgs.length; lbImg.src = allImgs[current].src; });
+document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % allImgs.length; lbImg.src = allImgs[current].src; });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lb.classList.remove('active');
+  if (e.key === 'ArrowLeft') { current = (current - 1 + allImgs.length) % allImgs.length; lbImg.src = allImgs[current].src; }
+  if (e.key === 'ArrowRight') { current = (current + 1) % allImgs.length; lbImg.src = allImgs[current].src; }
+});
+</script>
+</body>
+</html>
