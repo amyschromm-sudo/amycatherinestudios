@@ -24,10 +24,10 @@
   .nav-back { font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.6); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
   .nav-back:hover { color: var(--gold); }
 
-  /* HERO STILL */
-  .hero-still { position: relative; height: 100vh; overflow: hidden; }
-  .hero-still img { width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.6); }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); }
+  /* HERO VIDEO */
+  .hero-video { position: relative; height: 100vh; overflow: hidden; background: var(--black); }
+  .hero-video iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); pointer-events: none; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.65)); }
   .hero-text { position: absolute; bottom: 10%; left: 3rem; }
   .hero-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
   .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3rem, 7vw, 7rem); color: var(--white); letter-spacing: 0.05em; line-height: 1; display: block; }
@@ -42,6 +42,7 @@
 
   /* STILLS GRID */
   .stills-full { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2px; }
+  .stills-two { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 2px; }
   .still { overflow: hidden; aspect-ratio: 3/2; }
   .still img { width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.9); transition: transform 0.7s ease, filter 0.5s ease; }
   .still:hover img { transform: scale(1.03); filter: brightness(1); }
@@ -50,62 +51,40 @@
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
   .lightbox.active { display: flex; }
   .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
-  .lightbox-close { position: absolute; top: 2rem; right: 2rem; color: var(--white); font-size: 1.5rem; cursor: pointer; letter-spacing: 0.2em; font-size: 0.7rem; }
+  .lightbox-close { position: absolute; top: 2rem; right: 2rem; color: var(--white); cursor: pointer; font-size: 0.7rem; letter-spacing: 0.2em; }
   .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.6); font-size: 0.65rem; letter-spacing: 0.2em; cursor: pointer; padding: 1rem; }
   .lightbox-prev { left: 2rem; }
   .lightbox-next { right: 2rem; }
 
-  /* VIDEO STRIP */
-  .video-strip { position: relative; width: 100%; height: 80vh; overflow: hidden; margin: 4rem 0; }
-  .video-strip iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100%; min-width: 100%; transform: translate(-50%, -50%); pointer-events: none; }
-
   /* CREDITS */
   .credits { padding: 6rem 3rem; border-top: 1px solid rgba(255,255,255,0.08); }
   .credits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
-  .credit-item { }
   .credit-label { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
   .credit-value { font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); }
 
   /* NEXT */
-  .next-project { display: block; padding: 5rem 3rem; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; transition: opacity 0.3s; }
+  .next-project { display: flex; padding: 5rem 3rem; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); justify-content: space-between; align-items: center; transition: opacity 0.3s; }
   .next-project:hover { opacity: 0.7; }
   .next-label { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.5rem; }
   .next-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--white); }
   .next-arrow { font-size: 2rem; color: var(--gold); }
 
   footer { padding: 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); }
-  .f-left { display: flex; align-items: center; gap: 1rem; }
   .f-right { font-size: 0.55rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.8; }
 
-
-  .nav-name { display: none; }
-  .hero-text { left: 1.5rem; bottom: 8%; }
-  .hero-title { font-size: clamp(2.5rem, 12vw, 4rem); }
-  .hero-tagline { font-size: 0.7rem; letter-spacing: 0.2em; }
-  .film-section { padding: 3rem 1.5rem; }
-  .video-strip { height: 40vw; min-height: 200px; }
-  .stills-full, .stills-landscape, .stills-portrait, .stills-row { grid-template-columns: repeat(2, 1fr) !important; }
-  .still-port { aspect-ratio: 3/4; }
-  .credits { padding: 3rem 1.5rem; }
-  .credits-grid { grid-template-columns: 1fr !important; gap: 1.5rem; }
-  .next-project { padding: 3rem 1.5rem; }
-  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
-}
-
-
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-name { display: none; }
-  .hero-text { left: 1.5rem; right: 1.5rem; bottom: 8%; }
-  .hero-title { font-size: clamp(2rem, 10vw, 3.5rem); }
-  .hero-tagline { font-size: 0.65rem; letter-spacing: 0.15em; }
-  .film-section { padding: 2.5rem 1.5rem; }
-  .credits { padding: 2.5rem 1.5rem; }
-  .credits-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-  .next-project { padding: 2.5rem 1.5rem; }
-  footer { padding: 1.5rem; flex-direction: column; gap: 0.8rem; text-align: center; }
-  .video-strip { height: 56vw; }
-}
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-name { display: none; }
+    .hero-text { left: 1.5rem; right: 1.5rem; bottom: 8%; }
+    .hero-title { font-size: clamp(2rem, 10vw, 3.5rem); }
+    .stills-full { grid-template-columns: repeat(2, 1fr); }
+    .stills-two { grid-template-columns: 1fr; }
+    .film-section { padding: 2.5rem 1.5rem; }
+    .credits { padding: 2.5rem 1.5rem; }
+    .credits-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .next-project { padding: 2.5rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.8rem; text-align: center; }
+  }
 </style>
 </head>
 <body>
@@ -121,9 +100,9 @@
   <a href="index.html" class="nav-back">← Back</a>
 </nav>
 
-<!-- HERO STILL -->
-<div class="hero-still">
-  <img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_5_gottrl.jpg" alt="Cortada">
+<!-- HERO VIDEO -->
+<div class="hero-video">
+  <iframe src="https://player.vimeo.com/video/1032517950?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <span class="hero-label">Campaign · Spirits</span>
@@ -140,17 +119,17 @@
   </div>
 </div>
 
-<!-- STILLS ROW 1 -->
+<!-- STILLS ROW 1 — 3 across -->
 <div class="stills-full">
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_7_sc3ht3.jpg" alt="Cortada" style="object-position:center center;"></div>
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_9_a4aiwf.jpg" alt="Cortada" style="object-position:center center;"></div>
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_6_dofnmh.jpg" alt="Cortada" style="object-position:center center;"></div>
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_7a_g6hirz.jpg" alt="Cortada"></div>
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_3a_grb3e1.jpg" alt="Cortada"></div>
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_9a_hoyusj.jpg" alt="Cortada"></div>
 </div>
 
-<!-- STILLS ROW 2 -->
-<div class="stills-full" style="grid-template-columns: repeat(2, 1fr);">
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_3_r9nnbb.jpg" alt="Cortada" style="object-position:center center;"></div>
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_5_gottrl.jpg" alt="Cortada" style="object-position:center center;"></div>
+<!-- STILLS ROW 2 — 2 across -->
+<div class="stills-two">
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_6a_iylcbk.jpg" alt="Cortada"></div>
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_cortada_tequila_5_gottrl.jpg" alt="Cortada"></div>
 </div>
 
 <!-- CREDITS -->
@@ -203,7 +182,6 @@
 const cur = document.getElementById('cur');
 document.addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
 
-// Lightbox
 const stills = Array.from(document.querySelectorAll('.still img'));
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
