@@ -21,9 +21,9 @@
   .nav-back { font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.6); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
   .nav-back:hover { color: var(--gold); }
 
-  .hero-still { position: relative; height: 100vh; overflow: hidden; }
-  .hero-still img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(1); }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)); }
+  .hero-still { position: relative; height: 100vh; overflow: hidden; background: var(--black); }
+  .hero-still iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); pointer-events: none; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.65)); }
   .hero-text { position: absolute; bottom: 10%; left: 3rem; }
   .hero-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
   .hero-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(3rem, 7vw, 7rem); color: var(--white); letter-spacing: 0.05em; line-height: 1; display: block; }
@@ -91,6 +91,7 @@
 
 <nav>
   <div class="nav-left">
+    <img src="https://res.cloudinary.com/dcamhwuif/image/upload/ACS_Mark_WHT_c_transparent_qrz123.png" alt="ACS" style="height:32px;width:auto;" onerror="this.style.display='none'">
     <div class="nav-divider"></div>
     <span class="nav-name">Amy Catherine Studios</span>
   </div>
@@ -98,7 +99,7 @@
 </nav>
 
 <div class="hero-still">
-  <img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_10_pgeeav.jpg" alt="Woodford Reserve">
+  <iframe src="https://player.vimeo.com/video/901191472?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <span class="hero-label">Campaign · Spirits</span>
@@ -107,11 +108,11 @@
   </div>
 </div>
 
-<div class="film-section">
-  <span class="section-label">The Film</span>
-  <div class="vimeo-wrap">
-    <iframe src="https://player.vimeo.com/video/901191472?autoplay=0&title=0&byline=0&portrait=0&color=c9a96e" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  </div>
+
+
+<!-- FULL WIDTH: _10 -->
+<div style="overflow:hidden; aspect-ratio:16/7; margin-top:2px;">
+  <img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_10_pgeeav.jpg" alt="Woodford Reserve" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.9);">
 </div>
 
 <!-- LANDSCAPE ROW: _9, _6 -->
@@ -125,6 +126,11 @@
   <div class="still-port"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_3_qnj3nc.jpg" alt="Woodford Reserve" style="object-position:center 20%;"></div>
   <div class="still-port"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_4_ipqa3t.jpg" alt="Woodford Reserve" style="object-position:center 20%;"></div>
   <div class="still-port"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/amy_schromm_photography_Woodford_Reserve_5_jjraeb.jpg" alt="Woodford Reserve" style="object-position:center 20%;"></div>
+</div>
+
+<!-- VIDEO STRIP -->
+<div style="position:relative;width:100%;height:75vh;overflow:hidden;margin-top:2px;">
+  <iframe src="https://player.vimeo.com/video/901191472?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);pointer-events:none;"></iframe>
 </div>
 
 <div class="credits">
