@@ -25,8 +25,8 @@
   .nav-back:hover { color: var(--gold); }
 
   /* HERO STILL */
-  .hero-still { position: relative; height: 100vh; overflow: hidden; }
-  .hero-still img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
+  .hero-still { position: relative; height: 100vh; overflow: hidden; background: var(--black); }
+  .hero-still iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); pointer-events: none; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.55)); }
   .hero-text { position: absolute; bottom: 10%; left: 3rem; }
   .hero-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
@@ -163,7 +163,7 @@
 
 <!-- HERO STILL -->
 <div class="hero-still">
-  <img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_0_wfihdg.jpg" alt="True Caliber">
+  <iframe src="https://player.vimeo.com/video/1177413679?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <span class="hero-label">Outdoor Living</span>
@@ -173,63 +173,38 @@
 </div>
 
 <!-- DIRECTOR'S CUT -->
-<div class="film-section">
-  <span class="section-label">The Film</span>
-  <div class="vimeo-wrap">
-    <iframe src="https://player.vimeo.com/video/1177413679?byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  </div>
-</div>
+
 
 
 <div class="stills-full cols-3">
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_0_wfihdg.jpg" alt="True Caliber" loading="lazy" style="object-position:center center;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_7_l0h5gc.jpg" alt="True Caliber" loading="lazy" style="object-position:center 70%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_12_ymydhr.jpg" alt="True Caliber" loading="lazy" style="object-position:center 45%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_13_s6lnui.jpg" alt="True Caliber" loading="lazy" style="object-position:center 40%;"></div>
-</div>
-
-<!-- VIDEO STRIP -->
-<div class="video-strip">
-  <iframe data-src="https://player.vimeo.com/video/1175507066?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  <div class="video-strip-overlay"></div>
-</div>
-
-<div class="stills-full cols-3">
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_8_coiurp.jpg" alt="True Caliber" loading="lazy" style="object-position:center 70%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_5_saatla.jpg" alt="True Caliber" loading="lazy" style="object-position:center 25%;"></div>
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_6_xbfdl6.jpg" alt="True Caliber" loading="lazy" style="object-position:center 25%;"></div>
-</div>
-
-<div class="stills-full cols-3">
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_17_z3gcay.jpg" alt="True Caliber" loading="lazy" style="object-position:center 30%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_9_ek4cfw.jpg" alt="True Caliber" loading="lazy" style="object-position:center 55%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_2_suffpv.jpg" alt="True Caliber" loading="lazy" style="object-position:center 45%;"></div>
-</div>
-
-<div class="stills-full cols-3">
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_3_lnyhws.jpg" alt="True Caliber" loading="lazy" style="object-position:center 25%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_1_cdq7xd.jpg" alt="True Caliber" loading="lazy" style="object-position:center 30%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_4_ejyzwj.jpg" alt="True Caliber" loading="lazy" style="object-position:center 20%;"></div>
-</div>
-
-<div class="stills-full cols-3">
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_11_txfz0a.jpg" alt="True Caliber" loading="lazy" style="object-position:center 30%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_14_byvlhy.jpg" alt="True Caliber" loading="lazy" style="object-position:center 30%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_18_cvqpxg.jpg" alt="True Caliber" loading="lazy" style="object-position:center 40%; transform:scale(1.3);"></div>
-</div>
-
-<div class="stills-full cols-3">
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_19_nnqm3x.jpg" alt="True Caliber" loading="lazy" style="object-position:center 30%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_20_daksbj.jpg" alt="True Caliber" loading="lazy" style="object-position:center 25%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_26_r4zlrd.jpg" alt="True Caliber" loading="lazy" style="object-position:right 40%;"></div>
-</div>
-
-<div class="stills-full cols-3">
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_23_qnovtf.jpg" alt="True Caliber" loading="lazy" style="object-position:center 25%;"></div>
-  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_24_nphcfh.jpg" alt="True Caliber" loading="lazy" style="object-position:center 45%;"></div>
+  <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_24_nphcfh.jpg" alt="True Caliber" loading="lazy" style="object-position:center 35%;"></div>
   <div class="still"><img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_27_yjx9wb.jpg" alt="True Caliber" loading="lazy" style="object-position:center 50%;"></div>
 </div>
 
-<!-- CREDITS -->
+<!-- VIDEO STRIP -->
+<div style="position:relative;width:100%;height:60vh;overflow:hidden;margin-top:2px;">
+  <iframe src="https://player.vimeo.com/video/1175507066?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);pointer-events:none;"></iframe>
+</div>
+
 <div class="credits">
   <p class="credits-title">Credits</p>
   <div class="credits-list">
