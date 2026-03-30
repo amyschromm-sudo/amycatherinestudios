@@ -49,7 +49,7 @@
   @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
   /* CLIENT TILES */
-  #work { padding: 6rem 0 0; }
+  #work { padding: 2rem 0 0; }
   .work-intro { text-align: center; padding: 12rem 3rem; background: #f8f5f0; }
   .work-intro p { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 3.5vw, 3.2rem); color: #1a1a1a; letter-spacing: 0.04em; line-height: 1.3; max-width: 900px; margin: 0 auto; }
   
@@ -91,7 +91,7 @@
   #contact { padding: 14rem 3rem 12rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.08); margin-top: 2px; background: #f8f5f0; }
   .contact-close { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 3.5rem); color: #1a1a1a; letter-spacing: 0.05em; margin-bottom: 1rem; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .contact-close.visible { opacity: 1; transform: translateY(0); }
-  .contact-email { display: inline-block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.1rem; color: rgba(0,0,0,0.5); text-decoration: none; letter-spacing: 0.1em; border-bottom: 1px solid rgba(201,169,110,0.4); padding-bottom: 0.2rem; margin-top: 1.5rem; display: block; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s, color 0.3s ease; }
+  .contact-email { display: inline-block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.1rem; color: rgba(0,0,0,0.5); text-decoration: none; letter-spacing: 0.1em; border-bottom: none; padding-bottom: 0.2rem; margin-top: 1.5rem; display: block; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s, color 0.3s ease; }
   .contact-email.visible { opacity: 1; transform: translateY(0); }
   .contact-email:hover { color: #000; border-color: var(--gold); }
 
@@ -131,9 +131,7 @@
 </section>
 
 <section id="work" style="margin-top:0;padding-top:0;">
-  <div class="work-intro">
-    <p>Step into the visual world that embodies your brand.</p>
-  </div>
+  <div style="height:8rem;background:#fff;"></div>
   <!-- FEATURED: True Caliber -->
   <a href="true-caliber.html" class="featured">
     <img src="https://res.cloudinary.com/dcamhwuif/image/upload/True_Caliber_amy_schromm_11_txfz0a.jpg" alt="True Caliber">
@@ -146,11 +144,10 @@
     <span class="featured-cta">Enter →</span>
   </a>
 
-  <!-- SECOND BREATH -->
-  <div class="work-intro" style="background: #f8f5f0;">
-    <p>The world you dreamed to life — now the world sees.</p>
-  </div>
+  <!-- WHITE BREAK -->
+  <div style="height:8rem;background:#fff;"></div>
 
+  <!-- SECOND BREATH -->
   <!-- CORTADA -->
   <a href="cortada.html" class="vid-bar">
     <iframe src="https://player.vimeo.com/video/1032517960?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -202,7 +199,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="/cdn-cgi/l/email-protection#4b2a26320b2a26323828233924262665282426" class="contact-email reveal"><span class="__cf_email__" data-cfemail="95f4f8ecd5f4f8ece6f6fde7faf8f8bbf6faf8">[email&#160;protected]</span></a>
+  <a href="mailto:amy@amyschromm.com" class="contact-email reveal">amy@amyschromm.com</a>
 </section>
 
 <footer>
