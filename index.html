@@ -199,7 +199,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="/cdn-cgi/l/email-protection#bcddd1c5fcddd1c5cfdfd4ced3d1d192dfd3d1" class="contact-email reveal"><span class="__cf_email__" data-cfemail="7514180c3514180c06161d071a18185b161a18">[email&#160;protected]</span></a>
+  <a href="/cdn-cgi/l/email-protection#6d0c00142d0c00141e0e051f020000430e0200" class="contact-email reveal"><span class="__cf_email__" data-cfemail="3d5c50447d5c50444e5e554f525050135e5250">[email&#160;protected]</span></a>
 </section>
 
 <footer>
@@ -216,7 +216,7 @@ document.querySelectorAll('a').forEach(el => {
 });
 setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
 
-es => {
+const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
