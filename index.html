@@ -37,7 +37,7 @@
   .nav-right a { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none; text-transform: uppercase; }
 
   /* HERO */
-  #hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); margin-bottom: 0; }
+  #hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); margin-bottom: 0; animation: heroFadeIn 1.5s ease 2.2s both; }
   .hero-iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); pointer-events: none; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.5) 100%); }
   .hero-text { position: absolute; bottom: 10%; left: 0; right: 0; text-align: center; opacity: 0; animation: heroReveal 1.2s ease 2.8s forwards; }
@@ -133,6 +133,10 @@
   #mobile-intro { display: flex; }
 }
 
+  @keyframes heroFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 </style>
 </head>
 <body>
@@ -234,7 +238,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="/cdn-cgi/l/email-protection#b8d9d5c1f8d9d5c1cbdbd0cad7d5d596dbd7d5" class="contact-email reveal"><span class="__cf_email__" data-cfemail="0c6d61754c6d61757f6f647e636161226f6361">[email&#160;protected]</span></a>
+  <a href="mailto:amy@amyschromm.com" class="contact-email reveal">amy@amyschromm.com</a>
 </section>
 
 <footer>
