@@ -216,4 +216,10 @@ document.querySelectorAll('a').forEach(el => {
 });
 setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
 
-const obs = new IntersectionObserver(entri
+es => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
