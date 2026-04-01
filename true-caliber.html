@@ -192,8 +192,8 @@
 </div>
 
 <!-- SEE FULL GALLERY -->
-<div style="text-align:center;padding:4rem 0 3rem;background:var(--black);">
-  <button onclick="openGallery(0)" style="background:none;border:1px solid rgba(201,169,110,0.4);color:var(--gold);font-family:'Jost',sans-serif;font-weight:200;font-size:0.75rem;letter-spacing:0.4em;text-transform:uppercase;cursor:pointer;padding:1.4rem 4rem;transition:all 0.3s;background:transparent;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(201,169,110,0.4)';this.style.color='var(--gold)'">see full gallery</button>
+<div style="text-align:center;padding:4rem 0 3rem;background:#000;width:100%;display:block;">
+  <button onclick="openGallery(0)" style="background:none;border:1px solid rgba(201,169,110,0.5);color:var(--gold);font-family:'Jost',sans-serif;font-weight:200;font-size:0.75rem;letter-spacing:0.4em;text-transform:uppercase;cursor:pointer;padding:1.4rem 4rem;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(201,169,110,0.4)';this.style.color='var(--gold)'">see full gallery</button>
 </div>
 
 <!-- VIDEO WITH THUMBNAIL -->
@@ -334,14 +334,28 @@ function openGallery(startIdx) {
 }
 function closeGallery() { document.getElementById('galleryLb').style.display = 'none'; }
 function renderGallery() {
+  const isMobile = window.innerWidth <= 768;
+  const cols = isMobile ? 1 : 3;
   const grid = document.getElementById('galleryGrid');
-  const start = galleryPage * perPage;
-  const slice = galleryImgs.slice(start, start + perPage);
+  grid.style.gridTemplateColumns = isMobile ? '1fr' : 'repeat(3,1fr)';
+  const start = galleryPage * (isMobile ? 1 : perPage);
+  const slice = galleryImgs.slice(start, start + cols);
   grid.innerHTML = slice.map(src => {
     const pos = src.includes('26_r4zlrd') ? 'right center' : 'center center';
-    return `<img src="${src}" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:${pos};">`;
+    return `<img src="${src}" style="width:100%;aspect-ratio:${isMobile ? '3/2' : '3/2'};object-fit:cover;object-position:${pos};">`;
   }).join('');
-  document.getElementById('galleryCount').textContent = (start+1) + '–' + Math.min(start+perPage, galleryImgs.length) + ' / ' + galleryImgs.length;
+  document.getElementById('galleryCount').textContent = (start+1) + '–' + Math.min(start+cols, galleryImgs.length) + ' / ' + galleryImgs.length;
+}
+function galleryNext() {
+  const isMobile = window.innerWidth <= 768;
+  const cols = isMobile ? 1 : perPage;
+  const maxPage = Math.ceil(galleryImgs.length / cols) - 1;
+  galleryPage = Math.min(galleryPage + 1, maxPage);
+  renderGallery();
+}
+function galleryPrev() {
+  galleryPage = Math.max(galleryPage - 1, 0);
+  renderGallery();
 }
 function galleryNext() {
   const maxPage = Math.ceil(galleryImgs.length / perPage) - 1;
