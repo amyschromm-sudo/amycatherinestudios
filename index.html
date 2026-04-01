@@ -99,13 +99,46 @@
   footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: var(--black); border-top: none; }
   .f-logo { height: 24px; width: auto; }
   .f-copy { font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
-@media (max-width: 768px) { #intro { display: none; } }
+
+  #mobile-intro {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    animation: mobileIntroFade 3.5s ease forwards;
+  }
+  .mobile-intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    letter-spacing: 0.5em;
+    color: var(--white);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  @keyframes mobileIntroFade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+@media (max-width: 768px) {
+  #intro { display: none; }
+  #mobile-intro { display: flex; }
+}
+
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 
+<div id="mobile-intro"><span class="mobile-intro-text">Amy Catherine Studios</span></div>
 <div id="intro"><div class="intro-text">Amy Catherine Studios</div></div>
 
 <nav>
