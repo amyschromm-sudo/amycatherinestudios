@@ -37,7 +37,7 @@
   .nav-right a { font-family: 'Jost', sans-serif; font-weight: 200; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none; text-transform: uppercase; }
 
   /* HERO */
-  #hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); margin-bottom: 0; animation: heroFadeIn 1.5s ease 2.2s both; }
+  #hero { position: relative; height: 100vh; width: 100%; overflow: hidden; background: var(--black); margin-bottom: 0; }
   .hero-iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); pointer-events: none; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.5) 100%); }
   .hero-text { position: absolute; bottom: 10%; left: 0; right: 0; text-align: center; opacity: 0; animation: heroReveal 1.2s ease 2.8s forwards; }
@@ -99,51 +99,12 @@
   footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: var(--black); border-top: none; }
   .f-logo { height: 24px; width: auto; }
   .f-copy { font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
-
-  #mobile-intro {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    animation: mobileIntroFade 2.2s ease forwards;
-  }
-  .mobile-intro-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(1.2rem, 6vw, 2rem);
-    letter-spacing: 0.5em;
-    color: var(--white);
-    text-transform: uppercase;
-    text-align: center;
-    padding: 0 2rem;
-  }
-  @keyframes mobileIntroFade {
-    0% { opacity: 0; }
-    15% { opacity: 1; }
-    70% { opacity: 1; }
-    90% { opacity: 0; }
-    100% { opacity: 0; }
-  }
-
-@media (max-width: 768px) {
-  #intro { display: none; }
-  #mobile-intro { display: flex; }
-}
-
-  @keyframes heroFadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 
-<div id="mobile-intro"><span class="mobile-intro-text">Amy Catherine Studios</span></div>
 <div id="intro"><div class="intro-text">Amy Catherine Studios</div></div>
 
 <nav>
@@ -224,7 +185,7 @@
   </a>
 
   <!-- STARR PIANO — still -->
-  <a href="starr-piano.html" class="still-bar">
+  <a href="starr.html" class="still-bar">
     <img src="https://res.cloudinary.com/dcamhwuif/image/upload/3F0A7420_1_edhjx0.jpg" alt="Starr Piano Suite">
     <div class="still-bar-overlay"></div>
     <div class="still-bar-content">
@@ -238,7 +199,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="/cdn-cgi/l/email-protection#81e0ecf8c1e0ecf8f2e2e9f3eeececafe2eeec" class="contact-email reveal"><span class="__cf_email__" data-cfemail="6d0c00142d0c00141e0e051f020000430e0200">[email&#160;protected]</span></a>
+  <a href="mailto:amy@amyschromm.com" class="contact-email reveal">amy@amyschromm.com</a>
 </section>
 
 <footer>
@@ -246,7 +207,7 @@
   <span class="f-copy">Amy Catherine Studios © 2026</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
 document.querySelectorAll('a').forEach(el => {
@@ -255,4 +216,10 @@ document.querySelectorAll('a').forEach(el => {
 });
 setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
 
-const obs = new IntersectionObserver(entri
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
