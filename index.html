@@ -99,16 +99,6 @@
   footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: var(--black); border-top: none; }
   .f-logo { height: 24px; width: auto; }
   .f-copy { font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
-  @media (max-width: 768px) {
-    nav { justify-content: center; padding: 1.2rem 1.5rem; }
-    .nav-left { justify-content: center; }
-    .nav-right { display: none; }
-    .featured-name { font-size: clamp(2.5rem, 10vw, 4rem); }
-    .vid-bar-name { font-size: clamp(1.8rem, 8vw, 3rem); }
-    .vid-bar-content { left: 1.5rem; }
-    .still-bar-content { left: 1.5rem; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
-  }
 </style>
 </head>
 <body>
@@ -209,7 +199,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="mailto:amy@amyschromm.com" class="contact-email reveal">amy@amyschromm.com</a>
+  <a href="/cdn-cgi/l/email-protection#bcddd1c5fcddd1c5cfdfd4ced3d1d192dfd3d1" class="contact-email reveal"><span class="__cf_email__" data-cfemail="7514180c3514180c06161d071a18185b161a18">[email&#160;protected]</span></a>
 </section>
 
 <footer>
@@ -226,9 +216,4 @@ document.querySelectorAll('a').forEach(el => {
 });
 setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
 
-entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
+const obs = new IntersectionObserver(entri
