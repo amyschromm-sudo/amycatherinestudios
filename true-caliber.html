@@ -343,7 +343,7 @@ function renderGallery() {
   const slice = galleryImgs.slice(start, start + cols);
   grid.innerHTML = slice.map(src => {
     const pos = src.includes('26_r4zlrd') ? 'right center' : 'center center';
-    const mobileStyle = `width:100%;max-height:80vh;object-fit:contain;object-position:${pos};display:block;background:#000;`;
+    const mobileStyle = `width:100vw;height:auto;max-height:85vh;object-fit:contain;object-position:center center;display:block;background:#000;`;
     const desktopStyle = `width:100%;aspect-ratio:3/2;object-fit:cover;object-position:${pos};display:block;`;
     return `<img src="${src}" style="${isMobile ? mobileStyle : desktopStyle}">`;
   }).join('');
