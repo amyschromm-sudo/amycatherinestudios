@@ -206,7 +206,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="/cdn-cgi/l/email-protection#42232f3b02232f3b31212a302d2f2f6c212d2f" class="contact-email reveal"><span class="__cf_email__" data-cfemail="4425293d0425293d37272c362b29296a272b29">[email&#160;protected]</span></a>
+  <a href="mailto:amy@amyschromm.com" class="contact-email reveal">amy@amyschromm.com</a>
 </section>
 
 <footer>
@@ -223,4 +223,9 @@ document.querySelectorAll('a').forEach(el => {
 });
 setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
 
-const obs = new IntersectionObserver(entri
+entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
