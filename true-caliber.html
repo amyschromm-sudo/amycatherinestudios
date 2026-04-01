@@ -296,7 +296,7 @@ document.addEventListener('keydown', e => {
 </script><!-- GALLERY LIGHTBOX -->
 <div id="galleryLb" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.97);z-index:2000;flex-direction:column;align-items:center;justify-content:center;">
   <span onclick="closeGallery()" style="position:absolute;top:2rem;right:2rem;color:rgba(255,255,255,0.6);font-size:0.7rem;letter-spacing:0.2em;cursor:pointer;font-family:'Jost',sans-serif;">CLOSE ✕</span>
-  <div style="display:flex;align-items:center;gap:0;width:100vw;justify-content:center;">
+  <div id="galleryInner" style="display:flex;align-items:center;gap:0;width:100vw;justify-content:center;">
     <span onclick="galleryPrev()" style="color:#fff;font-size:3rem;cursor:pointer;padding:1rem;flex-shrink:0;opacity:0.9;text-shadow:0 0 20px rgba(255,255,255,0.5);">←</span>
     <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;flex:1;max-height:85vh;"></div>
     <span onclick="galleryNext()" style="color:#fff;font-size:3rem;cursor:pointer;padding:1rem;flex-shrink:0;opacity:0.9;text-shadow:0 0 20px rgba(255,255,255,0.5);">→</span>
@@ -337,13 +337,16 @@ function renderGallery() {
   const isMobile = window.innerWidth <= 768;
   const cols = isMobile ? 1 : 3;
   const grid = document.getElementById('galleryGrid');
-  // flex layout handles columns
-  grid.style.width = isMobile ? 'calc(100vw - 100px)' : '';
+  grid.style.gridTemplateColumns = isMobile ? '1fr' : 'repeat(3,1fr)';
+  grid.style.width = isMobile ? '100vw' : '';
+  grid.style.maxWidth = isMobile ? '100vw' : '';
+  const inner = document.getElementById('galleryInner');
+  if (inner) { inner.style.flexDirection = isMobile ? 'column' : 'row'; inner.style.gap = isMobile ? '1rem' : '0'; }
   const start = galleryPage * (isMobile ? 1 : perPage);
   const slice = galleryImgs.slice(start, start + cols);
   grid.innerHTML = slice.map(src => {
     const pos = src.includes('26_r4zlrd') ? 'right center' : 'center center';
-    const mobileStyle = `width:100%;height:auto;max-height:75vh;object-fit:contain;object-position:center center;display:block;`;
+    const mobileStyle = `width:100vw;height:auto;max-height:80vh;object-fit:contain;object-position:center center;display:block;`;
     const desktopStyle = `width:100%;aspect-ratio:3/2;object-fit:cover;object-position:${pos};display:block;`;
     return `<img src="${src}" style="${isMobile ? mobileStyle : desktopStyle}">`;
   }).join('');
