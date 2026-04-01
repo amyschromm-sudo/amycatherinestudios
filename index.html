@@ -224,7 +224,7 @@
   </a>
 
   <!-- STARR PIANO — still -->
-  <a href="starr-piano.html" class="still-bar">
+  <a href="starr.html" class="still-bar">
     <img src="https://res.cloudinary.com/dcamhwuif/image/upload/3F0A7420_1_edhjx0.jpg" alt="Starr Piano Suite">
     <div class="still-bar-overlay"></div>
     <div class="still-bar-content">
@@ -238,7 +238,7 @@
 
 <section id="contact">
   <p class="contact-close reveal">Create your legacy.</p>
-  <a href="/cdn-cgi/l/email-protection#accdc1d5eccdc1d5dfcfc4dec3c1c182cfc3c1" class="contact-email reveal"><span class="__cf_email__" data-cfemail="ccada1b58cada1b5bfafa4bea3a1a1e2afa3a1">[email&#160;protected]</span></a>
+  <a href="mailto:amy@amyschromm.com" class="contact-email reveal">amy@amyschromm.com</a>
 </section>
 
 <footer>
@@ -246,7 +246,7 @@
   <span class="f-copy">Amy Catherine Studios © 2026</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
 document.querySelectorAll('a').forEach(el => {
@@ -255,4 +255,10 @@ document.querySelectorAll('a').forEach(el => {
 });
 setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
 
-const obs = new IntersectionObserver(entri
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
