@@ -298,7 +298,7 @@ document.addEventListener('keydown', e => {
   <span onclick="closeGallery()" style="position:absolute;top:2rem;right:2rem;color:rgba(255,255,255,0.6);font-size:0.7rem;letter-spacing:0.2em;cursor:pointer;font-family:'Jost',sans-serif;">CLOSE ✕</span>
   <div style="display:flex;align-items:center;gap:0.5rem;width:100vw;justify-content:center;">
     <span onclick="galleryPrev()" style="color:#fff;font-size:3rem;cursor:pointer;padding:1rem;flex-shrink:0;opacity:0.9;text-shadow:0 0 20px rgba(255,255,255,0.5);">←</span>
-    <div id="galleryGrid" style="display:flex;align-items:center;justify-content:center;gap:4px;flex:1;max-width:90vw;max-height:85vh;overflow:hidden;"></div>
+    <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:88vw;max-height:85vh;"></div>
     <span onclick="galleryNext()" style="color:#fff;font-size:3rem;cursor:pointer;padding:1rem;flex-shrink:0;opacity:0.9;text-shadow:0 0 20px rgba(255,255,255,0.5);">→</span>
   </div>
   <span id="galleryCount" style="margin-top:1.5rem;color:rgba(255,255,255,0.3);font-size:0.55rem;letter-spacing:0.3em;font-family:'Jost',sans-serif;"></span>
@@ -343,7 +343,9 @@ function renderGallery() {
   const slice = galleryImgs.slice(start, start + cols);
   grid.innerHTML = slice.map(src => {
     const pos = src.includes('26_r4zlrd') ? 'right center' : 'center center';
-    return `<img src="${src}" style="width:100%;max-height:80vh;object-fit:contain;object-position:${pos};display:block;background:#000;">`;
+    const mobileStyle = `width:100%;max-height:80vh;object-fit:contain;object-position:${pos};display:block;background:#000;`;
+    const desktopStyle = `width:100%;aspect-ratio:3/2;object-fit:cover;object-position:${pos};display:block;`;
+    return `<img src="${src}" style="${isMobile ? mobileStyle : desktopStyle}">`;
   }).join('');
   document.getElementById('galleryCount').textContent = (start+1) + '–' + Math.min(start+cols, galleryImgs.length) + ' / ' + galleryImgs.length;
 }
