@@ -24,7 +24,7 @@
   /* INTRO */
   #intro { position: fixed; inset: 0; background: var(--black); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease; }
   #intro.gone { opacity: 0; pointer-events: none; }
-  .intro-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.2rem, 3vw, 2.5rem); letter-spacing: 0.5em; color: var(--white); text-transform: uppercase; opacity: 0; animation: introName 2.2s ease 0.3s forwards; }
+  .intro-text { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1rem, 5vw, 2.5rem); letter-spacing: 0.2em; color: var(--white); text-transform: uppercase; opacity: 0; animation: introName 2.2s ease 0.3s forwards; }
   .intro-tagline { display: none; }
   @keyframes introName { 0% { opacity: 0; transform: translateY(8px); } 30% { opacity: 1; transform: translateY(0); } 80% { opacity: 1; } 100% { opacity: 0; } }
 
@@ -185,7 +185,7 @@
   </a>
 
   <!-- STARR PIANO — still -->
-  <a href="starr.html" class="still-bar">
+  <a href="starr-piano.html" class="still-bar">
     <img src="https://res.cloudinary.com/dcamhwuif/image/upload/3F0A7420_1_edhjx0.jpg" alt="Starr Piano Suite">
     <div class="still-bar-overlay"></div>
     <div class="still-bar-content">
@@ -214,7 +214,7 @@ document.querySelectorAll('a').forEach(el => {
   el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
 });
-setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);
+if(!sessionStorage.getItem('visited')){setTimeout(() => document.getElementById('intro').classList.add('gone'), 2400);sessionStorage.setItem('visited','1');}else{document.getElementById('intro').classList.add('gone');}
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
