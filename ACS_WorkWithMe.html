@@ -22,7 +22,7 @@
   .page { page-break-after:always; }
 
   /* TRACKS */
-  .tracks { padding:128px 0 80px; min-height:96vh; }
+  .tracks { padding:48px 0 80px; min-height:96vh; }
   .track-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--gold-soft); border:1px solid var(--gold-soft); }
   .track { background:var(--paper); padding:40px 28px; }
   .track-num { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.0rem; color:var(--gold); margin-bottom:12px; }
@@ -60,7 +60,19 @@
   .nav-right { display:flex; gap:2.5rem; align-items:center; }
   .nav-right a { font-family:'Jost',sans-serif; font-weight:300; font-size:0.62rem; letter-spacing:0.3em; color:var(--ink); text-decoration:none; text-transform:uppercase; transition:color 0.3s ease; }
   .nav-right a:hover { color:var(--gold); }
-  @media (max-width:720px){ nav { padding:1.2rem 24px; } .nav-name { display:none; } .nav-right { gap:1.4rem; } }
+  @media (max-width:720px){ nav { padding:1.1rem 18px; } .nav-name { display:none; } .nav-right { gap:1rem; } .nav-right a { font-size:0.5rem; letter-spacing:0.16em; white-space:nowrap; } }
+  .thesis { padding:128px 0 150px; text-align:center; }
+  .thesis .section-label { margin-bottom:36px; }
+  .thesis-body { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(1.6rem,2.7vw,2.35rem); line-height:1.58; color:var(--ink); max-width:1080px; margin:0 auto; }
+  .thesis-body + .thesis-body { margin-top:1.6rem; }
+  .thesis-body em { font-style:italic; color:var(--gold); }
+  /* reveal animations */
+  .reveal { opacity:0; transform:translateY(26px); transition:opacity 1s cubic-bezier(0.22,0.61,0.36,1), transform 1s cubic-bezier(0.22,0.61,0.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .thesis-body.reveal:nth-of-type(2) { transition-delay:0.18s; }
+  .track-grid .track.reveal:nth-child(2) { transition-delay:0.14s; }
+  .track-grid .track.reveal:nth-child(3) { transition-delay:0.28s; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
 </style>
 </head>
 <body>
@@ -77,24 +89,32 @@
   </div>
 </nav>
 
+<section class="thesis">
+  <div class="wrap">
+    <div class="section-label reveal">Point of view</div>
+    <p class="thesis-body reveal">We are in evolving times. Production and distribution models are rapidly changing. Our north star is the brand, the creative, and the story.</p>
+    <p class="thesis-body reveal">As brands move in-house and we all become our own media channels, our model is engineered to fit into your infrastructure as a true collaborator. Bringing a deep production and agency background, we seamlessly bridge the gaps of these changing times while fiercely preserving the high-craft strategy, creative direction, and narrative integrity your brand deserves.</p>
+  </div>
+</section>
+
 
 <section class="page tracks">
   <div class="wrap">
-    <div class="section-label">The engagement framework</div>
+    <div class="section-label reveal">The engagement framework</div>
     <div class="track-grid">
-      <div class="track">
+      <div class="track reveal">
         <div class="track-num">Track 1</div>
         <h3>The Visionary Pioneer</h3>
         <div class="blk model"><span>The model</span>Directorial and aesthetic steering for internal teams.</div>
         <div class="blk bp"><span>The blueprint</span>A true collaboration with us steering the ship. You have the infrastructure; we steer the creative vision, design the blueprint, and hold high-craft continuity from first concept through execution.</div>
       </div>
-      <div class="track">
+      <div class="track reveal">
         <div class="track-num">Track 2</div>
         <h3>The Unified Engine</h3>
         <div class="blk model"><span>The model</span>Full-service, end-to-end execution.</div>
         <div class="blk bp"><span>The blueprint</span>A complete creative and execution layer for agencies and brands. Functioning as a full creative partner, we bring our internal team and network to deliver elite cinematic production end to end, seamless and comprehensive from concept to finished campaign.</div>
       </div>
-      <div class="track">
+      <div class="track reveal">
         <div class="track-num">Track 3</div>
         <h3>The Elite Artisan</h3>
         <div class="blk model"><span>The model</span>Seamless integration into an existing pipeline.</div>
@@ -106,14 +126,16 @@
 
 <section class="page services">
   <div class="wrap">
-    <div class="head">Services &amp; <em>scope.</em></div>
-    <div class="sub">A true collaborator for agencies and brands.</div>
-    <div class="svc"><div class="svc-num">i.</div><div><h3>Creative Direction &amp; Campaign Strategy</h3><p>The story, the concept, and the messaging that anchor it all. Finding the narrative worth telling and shaping the platform a campaign stands on. Whether executing the creative an agency brings or building it direct with a brand, long before a single frame is shot.</p></div></div>
-    <div class="svc"><div class="svc-num">ii.</div><div><h3>Executive Production</h3><p>A seamless, start-to-finish production. Leading an award-winning, top-of-the-industry team to handle every detail with precision, from pre-production planning through on-set execution to final delivery across stills and motion.</p></div></div>
-    <div class="svc"><div class="svc-num">iii.</div><div><h3>Directing</h3><p>Film and motion. Moving a brand's narrative to the screen with absolute alignment, elite craft, and cinematic production value.</p></div></div>
-    <div class="svc"><div class="svc-num">iv.</div><div><h3>Photography</h3><p>Where it all started. From learning in a darkroom to shooting for the world's largest brands, we lead with visionary photography built for print and digital campaigns.</p></div></div>
-    <div class="svc"><div class="svc-num">v.</div><div><h3>Post-Production &amp; Retouching</h3><p>Photo retouching at full scale, handled completely in-house. Motion post-production is directed through trusted post partners, guiding edits through final color to guard the vision and the brand all the way to the final frame.</p></div></div>
-    <div class="callout">
+    <div class="head reveal">Services &amp; <em>scope.</em></div>
+    <div class="sub reveal">A true collaborator for agencies and brands.</div>
+    <div class="svc reveal"><div class="svc-num">i.</div><div><h3>Creative Direction &amp; Campaign Strategy</h3><p>The story, the concept, and the messaging that anchor it all. Finding the narrative worth telling and shaping the platform a campaign stands on. Whether executing the creative an agency brings, building it direct with a brand, or shaping narrative strategy for major public media platforms, long before a single frame is shot.</p></div></div>
+    <div class="svc reveal"><div class="svc-num">ii.</div><div><h3>Executive Production</h3><p>A seamless, start-to-finish production. Leading an award-winning, top-of-the-industry team to handle every detail with precision, from pre-production planning through on-set execution to final delivery across stills and motion.</p></div></div>
+    <div class="svc reveal"><div class="svc-num">iii.</div><div><h3>Directing</h3><p>Film and motion. Moving a brand's narrative to the screen with absolute alignment, elite craft, and cinematic production value.</p></div></div>
+    <div class="svc reveal"><div class="svc-num">iv.</div><div><h3>Photography</h3><p>Where it all started. From learning in a darkroom to shooting for the world's largest brands, we lead with visionary photography built for print and digital campaigns.</p></div></div>
+    <div class="svc reveal"><div class="svc-num">v.</div><div><h3>Creative Partnership</h3><p>Plugging directly into your infrastructure as the missing piece, in the exact form your in-house or agency team needs. Partnering in whatever shape the work calls for and walking the creative road together.</p></div></div>
+    <div class="svc reveal"><div class="svc-num">vi.</div><div><h3>Post-Production &amp; Retouching</h3><p>Photo retouching at full scale, handled completely in-house. Motion post-production is directed through trusted post partners, guiding edits through final color to guard the vision and the brand all the way to the final frame.</p></div></div>
+    <div class="svc reveal"><div class="svc-num">vii.</div><div><h3>Strategic Partnerships &amp; Reach</h3><p>The work doesn't begin at the frame. We strategize alongside your team to bring in the right partnerships, alliances, and co-branded moments, then work directly with their marketing teams to amplify reach and put the right eyes on it.</p></div></div>
+    <div class="callout reveal">
       <p class="line" style="font-size:1.25rem; margin-bottom:16px;">Custom Scopes</p>
       <p class="subc">Engagements are built project by project, shaped entirely to your brand, your team, and your goals. Reach out and we'll build the right scope together.</p>
       <p class="contact" style="color:var(--muted); font-size:0.92rem; letter-spacing:0.04em; line-height:2; margin-bottom:6px;">See the work: <a href="https://www.amycatherinestudios.com" style="color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-soft);">amycatherinestudios.com</a></p>
@@ -123,5 +145,18 @@
   </div>
 </section>
 
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('visible');}); return; }
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('visible'); obs.unobserve(en.target); }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(function(e){ obs.observe(e); });
+  })();
+</script>
 </body>
 </html>
